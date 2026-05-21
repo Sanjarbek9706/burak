@@ -1,10 +1,5 @@
-// console.log("EXUCUTED");
+// Architectural pattern: MVC, Dependency Injection, MVP
 
-// import moment from 'moment';
+// MVC = MODEL VIEW CONTROLLER 
 
-// const currentTime = moment().format("YYYY MM DD");
-// console.log(currentTime);
-
-
-// const person:  string = "Aven";
-// const count: number = 777; 
+// Design pattern: Middleware, Decotar
