@@ -2,4 +2,4 @@
 
 // MVC = MODEL VIEW CONTROLLER 
 
-// Design pattern: Middleware, Decotar
+Design pattern: Middleware, Decotar
