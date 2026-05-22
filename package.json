@@ -7,13 +7,14 @@
   "scripts": {
     "start": "tsx src/server.ts",
     "start:dev": "nodemon  --exec tsx src/server.ts",
-    "train": "nodemon train.js",
+    "train": "nodemon --exec tsx src/train.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "MIT",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "moment": "^2.29.4"
   },
   "devDependencies": {
