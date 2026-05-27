@@ -1,5 +1,6 @@
 import express from 'express';
 import path from "path";
+import router from "./router";
 
 /* 1-ENTRANCE */
 const app = express();
@@ -15,6 +16,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set("view enginer", "ejs");
 
 /* 4-ROUNTERS */
-
+app.use("/", router);  //Meddleware Design patter
 
 export default app;
