@@ -41,3 +41,25 @@ va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadrati
 
   const naticha = getSquareNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   console.log(naticha);
+
+  /* N-TASK
+
+Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham,
+ orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin. 
+ MASALAN: palindromCheck("dad") return true; palindromCheck("son") return false.
+ */
+
+function palindromCheck(str: string): boolean {
+  if (
+    str.toLowerCase() === str.toLowerCase()
+      .split("")
+      .reverse()
+      .join(""))
+   {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(palindromCheck("olma"));
+console.log(palindromCheck("non"));
