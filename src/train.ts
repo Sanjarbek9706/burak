@@ -61,5 +61,5 @@ function palindromCheck(str: string): boolean {
     return false;
   }
 }
-console.log(palindromCheck("olma"));
+console.log(palindromCheck("bodring"));
 console.log(palindromCheck("non"));
