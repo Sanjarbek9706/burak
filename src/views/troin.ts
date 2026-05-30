@@ -7,3 +7,11 @@
       css => SNAKE                           button_style
   - Error handing
 */
+
+
+/*
+ Traditional API
+ Rest API
+ GraphQL API
+ ...
+*/
