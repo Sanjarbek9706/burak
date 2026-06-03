@@ -72,17 +72,38 @@ array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
  MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45.
  */
 
- function calculateSumOfNumbers(arr: any[]): number {
-    let yigindi = 0;
+//  function calculateSumOfNumbers(arr: any[]): number {
+//     let yigindi = 0;
 
-    for (let element of arr) {
-        if (typeof element === "number") {
-             yigindi = yigindi + element
+//     for (let element of arr) {
+//         if (typeof element === "number") {
+//              yigindi = yigindi + element
+//         }
+//     }
+
+//     return yigindi;
+// }
+
+// const natija = calculateSumOfNumbers([10, "10", {son: 10}, true, 35]);
+// console.log(natija);
+
+/*
+  P-TASK
+
+Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib
+ arrayni qaytarsin. MASALAN: objectToArray({a: 10, b: 20}) 
+ return [["a", 10], ["b", 20]].
+ */
+function objectToArrayManual(obj: Record<string, any>): [string, any][] {
+    const result: [string, any][] = [];
+
+    for (const key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+            result.push([key, obj[key]]);
         }
     }
-
-    return yigindi;
+    return result;
 }
 
-const natija = calculateSumOfNumbers([10, "10", {son: 10}, true, 35]);
-console.log(natija);
+const res = objectToArrayManual({ a: 50, b: 77 });
+console.log(res);
