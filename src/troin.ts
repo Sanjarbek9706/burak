@@ -15,3 +15,8 @@
  GraphQL API
  ...
 */
+
+/*
+  Traditional Frontend Development => BSSR (Admin)              => EJS
+  Modern Frontend Developmen       => SPA (USER' application )  => REACT 
+ */
