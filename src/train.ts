@@ -94,16 +94,36 @@ Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib
  arrayni qaytarsin. MASALAN: objectToArray({a: 10, b: 20}) 
  return [["a", 10], ["b", 20]].
  */
-function objectToArrayManual(obj: Record<string, any>): [string, any][] {
-    const result: [string, any][] = [];
+// function objectToArrayManual(obj: Record<string, any>): [string, any][] {
+//     const result: [string, any][] = [];
 
-    for (const key in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key)) {
-            result.push([key, obj[key]]);
-        }
-    }
-    return result;
+//     for (const key in obj) {
+//         if (Object.prototype.hasOwnProperty.call(obj, key)) {
+//             result.push([key, obj[key]]);
+//         }
+//     }
+//     return result;
+// }
+
+// const res = objectToArrayManual({ a: 50, b: 77 });
+// console.log(res);
+
+/*Q-TASK
+
+Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, 
+ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin. 
+MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; 
+hasProperty({name: "BMW", model: "M3"}, "year") return false.
+*/
+
+function hasProperty(obj: Record<string, any>, prop: string): boolean {
+    return prop in obj;
 }
 
-const res = objectToArrayManual({ a: 50, b: 77 });
-console.log(res);
+const car = { name: "BMW", model: "M3" };
+console.log(hasProperty(car, "model"));
+console.log(hasProperty(car, "year")); 
+
+const user = { id: 1, username: "admin", isActive: true };
+console.log(hasProperty(user, "username")); 
+console.log(hasProperty(user, "password")); 
