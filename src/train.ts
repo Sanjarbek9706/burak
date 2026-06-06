@@ -116,14 +116,31 @@ MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true;
 hasProperty({name: "BMW", model: "M3"}, "year") return false.
 */
 
-function hasProperty(obj: Record<string, any>, prop: string): boolean {
-    return prop in obj;
+// function hasProperty(obj: Record<string, any>, prop: string): boolean {
+//     return prop in obj;
+// }
+
+// const car = { name: "BMW", model: "M3" };
+// console.log(hasProperty(car, "model"));
+// console.log(hasProperty(car, "year")); 
+
+// const user = { id: 1, username: "admin", isActive: true };
+// console.log(hasProperty(user, "username")); 
+// console.log(hasProperty(user, "password")); 
+
+/*
+ R-TASK
+
+Shunday function yozing, u string parametrga ega bolsin.
+ String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini 
+ number holatda qaytarsin. MASALAN: calculate("1+3") return 4. 
+ */
+function calculate(expression: string): number {
+    const parts = expression.split('+');
+    const firstNumber = Number(parts[0]);  
+    const secondNumber = Number(parts[1]); 
+    return firstNumber + secondNumber;
 }
 
-const car = { name: "BMW", model: "M3" };
-console.log(hasProperty(car, "model"));
-console.log(hasProperty(car, "year")); 
-
-const user = { id: 1, username: "admin", isActive: true };
-console.log(hasProperty(user, "username")); 
-console.log(hasProperty(user, "password")); 
+console.log(calculate("1+3")); 
+console.log(calculate("10+20")); 
