@@ -37,7 +37,7 @@ app.use(
 
 /* 3-VIEWS */
 app.set('views', path.join(__dirname, 'views'));
-app.set("view enginer", "ejs");
+app.set("view engine", "ejs");
 
 /* 4-ROUNTERS */
 app.use("/admin", routerAdmin); // BSSR: EJS
