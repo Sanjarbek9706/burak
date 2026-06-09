@@ -135,12 +135,40 @@ Shunday function yozing, u string parametrga ega bolsin.
  String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini 
  number holatda qaytarsin. MASALAN: calculate("1+3") return 4. 
  */
-function calculate(expression: string): number {
-    const parts = expression.split('+');
-    const firstNumber = Number(parts[0]);  
-    const secondNumber = Number(parts[1]); 
-    return firstNumber + secondNumber;
+// function calculate(expression: string): number {
+//     const parts = expression.split('+');
+//     const firstNumber = Number(parts[0]);  
+//     const secondNumber = Number(parts[1]); 
+//     return firstNumber + secondNumber;
+// }
+
+// console.log(calculate("1+3")); 
+// console.log(calculate("10+20")); 
+
+/* 
+S-TASK
+
+Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin 
+va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin. 
+MASALAN: missingNumber([3, 0, 1]) return 2.
+*/
+
+function missingNumber(nums: number[]): number {
+  const n: number = nums.length;
+  
+  //  0 dan n gacha bo'lgan sonlarning kutilayotgan idyalRaqam yig'indisi!
+  const idyalRaqam: number = (n * (n + 1)) / 2;
+  
+  //  Array ichidagi bor bo'lgan sonlarning haqiqiy yig'indisi!
+  const actualRaqam: number = nums.reduce((sum: number, num: number) => sum + num, 0);
+  
+  //  O'rtadagi farq — tushib qolgan son!
+  return idyalRaqam - actualRaqam;
 }
 
-console.log(calculate("1+3")); 
-console.log(calculate("10+20")); 
+
+const array1: number[] = [3, 0, 1];
+console.log(missingNumber(array1)); 
+
+const array2: number[] = [9, 6, 2, 8, 3, 5, 7, 0, 1];
+console.log(missingNumber(array2)); 

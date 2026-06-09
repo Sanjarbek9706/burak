@@ -9,19 +9,25 @@
 */
 
 
-/*
+/* Request
  Traditional API
  Rest API
  GraphQL API
  ...
 */
 
-/*
+/*  Frontend Development
   Traditional Frontend Development => BSSR (Admin)              => EJS
   Modern Frontend Developmen       => SPA (USER' application )  => REACT 
  */
 
-  /*
+  /* Cookies
   request join
   selfdestroy
    */
+
+  /* Validation
+  Frontend validation
+  Pipe validation
+  Backend validation
+  Database validation*/
