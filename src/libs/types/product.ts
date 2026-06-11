@@ -22,11 +22,25 @@ import {
 
 export interface ProductInput {
     productImages: string[];
-    productStatus: ProductStatus;
+    productStatus?: ProductStatus;
     productCollection: ProductCollection;
     productName: string;
     productPrice: number;
     productLeftCount: number;
+    productSize?: ProductSize;
+    productVolume?: Number;
+    productDesc?: string;
+    productImeges?: string[];
+    productViews?: number;
+}
+
+export interface ProductUpdateInput {
+    productImages: string[];
+    productStatus?: ProductStatus;
+    productCollection?: ProductCollection;
+    productName?: string;
+    productPrice?: number;
+    productLeftCount?: number;
     productSize?: ProductSize;
     productVolume?: Number;
     productDesc?: string;
