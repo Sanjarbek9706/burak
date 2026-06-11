@@ -19,15 +19,15 @@ routerAdmin.get("/check-me", restaurantController.checkAuthSession);
 /** Product */
 routerAdmin.get("/product/all",
     restaurantController.verifyRestaurant,
-    productController.getAllProducts);
+    productController.getAllProduct);
 routerAdmin.post("/product/create",
      restaurantController.verifyRestaurant,
      // uploadProductImage.single('productImage'),
-     makeUploader("products").array("productImage", 5),
-     productController.createNewProducts);
+     makeUploader("product").array("productImage", 5),
+     productController.createNewProduct);
 routerAdmin.post("/product/:id",
      restaurantController.verifyRestaurant,
-     productController.updateChosenProducts);
+     productController.updateChosenProduct);
 /** User */
 
 export default routerAdmin;
