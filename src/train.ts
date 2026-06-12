@@ -153,22 +153,38 @@ va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin.
 MASALAN: missingNumber([3, 0, 1]) return 2.
 */
 
-function missingNumber(nums: number[]): number {
-  const n: number = nums.length;
+// function missingNumber(nums: number[]): number {
+//   const n: number = nums.length;
   
-  //  0 dan n gacha bo'lgan sonlarning kutilayotgan idyalRaqam yig'indisi!
-  const idyalRaqam: number = (n * (n + 1)) / 2;
+//   //  0 dan n gacha bo'lgan sonlarning kutilayotgan idyalRaqam yig'indisi!
+//   const idyalRaqam: number = (n * (n + 1)) / 2;
   
-  //  Array ichidagi bor bo'lgan sonlarning haqiqiy yig'indisi!
-  const actualRaqam: number = nums.reduce((sum: number, num: number) => sum + num, 0);
+//   //  Array ichidagi bor bo'lgan sonlarning haqiqiy yig'indisi!
+//   const actualRaqam: number = nums.reduce((sum: number, num: number) => sum + num, 0);
   
-  //  O'rtadagi farq — tushib qolgan son!
-  return idyalRaqam - actualRaqam;
+//   //  O'rtadagi farq — tushib qolgan son!
+//   return idyalRaqam - actualRaqam;
+// }
+
+
+// const array1: number[] = [3, 0, 1];
+// console.log(missingNumber(array1)); 
+
+// const array2: number[] = [9, 6, 2, 8, 3, 5, 7, 0, 1];
+// console.log(missingNumber(array2)); 
+
+/*
+T-TASK
+
+Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin 
+va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
+ MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]) return [0,3,4,4,6,30,31].
+ */
+
+ function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+    const combinedArray = [...arr1, ...arr2];
+    
+    return combinedArray.sort((a, b) => a - b);
 }
 
-
-const array1: number[] = [3, 0, 1];
-console.log(missingNumber(array1)); 
-
-const array2: number[] = [9, 6, 2, 8, 3, 5, 7, 0, 1];
-console.log(missingNumber(array2)); 
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); 
