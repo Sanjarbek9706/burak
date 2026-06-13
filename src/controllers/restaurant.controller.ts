@@ -45,10 +45,11 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
     try {
         console.log("processSignup");
         const file = req.file;
-        if(!file) throw new Errors(HttpCode.BAD_REQUEST,Message.SOMETHING_WENT_WRONG);
+        if (!file) 
+            throw new Errors(HttpCode.BAD_REQUEST,Message.SOMETHING_WENT_WRONG);
 
         const newMember: MemberInput = req.body;
-        newMember.memberImege = file?.path;
+        newMember.memberImage = file?.path;
         newMember.memberType = MemberType.RESTAURANT;
         const result = await memberService.processSignup(newMember);
           // TODO: SESSIONS AUTHENTICATION

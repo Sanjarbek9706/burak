@@ -4,9 +4,7 @@ import { Product, ProductInput, ProductUpdateInput } from "../libs/types/product
 import ProductModel from "../schema/Product.model";
 
 class ProductService {
-    getAllProducts() {
-        throw new Error("Method not implemented.");
-    }
+    
     private readonly productModel;
 
     constructor() {
@@ -17,7 +15,7 @@ class ProductService {
 
 /** SSR */
 
-public async getAllProduct(): Promise<Product[]> {
+public async getAllProducts(): Promise<Product[]> {
    const result = await this.productModel.find().exec();
    if(!result) throw  new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
@@ -41,7 +39,8 @@ public async updateChosenProduct(
     input: ProductUpdateInput
 ): Promise<Product> {
    id = shapeIntoMongooseObjectId(id);
-   const result = await this.productModel.findOneAndUpdate({ _id: id }, input, { new: true})
+   const result = await this.productModel
+   .findOneAndUpdate({ _id: id }, input, { new: true})
    .exec();
    if(!result) throw  new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
 

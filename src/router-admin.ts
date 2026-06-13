@@ -19,10 +19,10 @@ routerAdmin.get("/check-me", restaurantController.checkAuthSession);
 /** Product */
 routerAdmin.get("/product/all",
     restaurantController.verifyRestaurant,
-    productController.getAllProduct);
+    productController.getAllProducts);
 routerAdmin.post("/product/create",
      restaurantController.verifyRestaurant,
-     makeUploader("product").array("productImage", 5),
+     makeUploader("product").array("productImages", 5),
      productController.createNewProduct);
 routerAdmin.post("/product/:id",
      restaurantController.verifyRestaurant,
