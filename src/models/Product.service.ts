@@ -1,7 +1,7 @@
-import { shapeIntoMongooseObjectId } from "../libs/config";
-import Errors, { HttpCode, Message } from "../libs/types/Errors";
-import { Product, ProductInput, ProductUpdateInput } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
+import { Product, ProductInput, ProductUpdateInput } from "../libs/types/product";
+import Errors, { HttpCode, Message } from "../libs/types/Errors";
+import { shapeIntoMongooseObjectId } from "../libs/config";
 
 class ProductService {
     
@@ -28,7 +28,7 @@ public async createNewProduct(input: ProductInput): Promise<Product> {
     try {
     return await this.productModel.create(input);
     } catch(err) {
-      console.error("Error, model:createNewProduct:", err);
+      console.error("Error, model: createNewProduct:", err);
       throw new Errors(HttpCode.BAD_REQUEST,  Message.CREATE_FAILED);  
 
     }

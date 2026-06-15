@@ -38,9 +38,9 @@ export interface LoginInput {
 export interface MemberUpdateInput {
     _id: ObjectId;
     memberStatus?: MemberStatus;
-    memberNick: string;
-    memberPhone: string;
-    memberPassword: string;
+    memberNick?: string;
+    memberPhone?: string;
+    memberPassword?: string;
     memberAdress?: string;
     memberDesc?: string;
     memberImage?: string;
