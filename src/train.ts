@@ -181,10 +181,32 @@ va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
  MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]) return [0,3,4,4,6,30,31].
  */
 
- function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-    const combinedArray = [...arr1, ...arr2];
+//  function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+//     const combinedArray = [...arr1, ...arr2];
     
-    return combinedArray.sort((a, b) => a - b);
+//     return combinedArray.sort((a, b) => a - b);
+// }
+
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); 
+
+
+/*
+U-TASK
+
+Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi 
+faqat toq sonlar nechtaligini return qilsin. MASALAN: sumOdds(9) return 4; sumOdds(11) return 5. 
+*/
+
+function sumOdds(number: number): number {
+    let count: number = 0;
+    
+    for (let i: number = 1; i < number; i++) {
+        if (i % 2 !== 0) {
+            count++;
+        }
+    }
+    
+    return count;
 }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); 
+console.log("shu raqamgacha bo'lgan toq sonlar: ", sumOdds(11), "number:", sumOdds(13)); 
