@@ -10,7 +10,7 @@
 
 
 /* Request
- Traditional API
+ Traditional API ( form POST)
  Rest API
  GraphQL API
  ...
@@ -30,4 +30,5 @@
   Frontend validation
   Pipe validation
   Backend validation
-  Database validation*/
+  Database validation
+  */
