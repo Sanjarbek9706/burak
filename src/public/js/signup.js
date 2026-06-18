@@ -2,7 +2,60 @@ console.log(
   "Signup frontend javascript file",
 );
 
-$(function () {});
+$(function () {
+  const fileTarget = $(
+    ".file-box .upload-hidden",
+  );
+  let fileName;
+
+  fileTarget.on("change", function () {
+    if (window.FileReader) {
+      const uploadedFile =
+        $(this)[0].files[0];
+      console.log(
+        "Uploaded file:",
+        uploadedFile,
+      );
+      const fileType =
+        uploadedFile["type"];
+      const validImageTypes = [
+        "image/jpeg",
+        "image/jpg",
+        "image/png",
+      ];
+      if (
+        !validImageTypes.includes(
+          fileType,
+        )
+      ) {
+        alert(
+          "Please insert only jpeg, jpg, and png!",
+        );
+      } else {
+        if (uploadedFile) {
+          console.log(
+            URL.createObjectURL(
+              uploadedFile,
+            ),
+          );
+          $(".upload-img-frame")
+            .attr(
+              "src",
+              URL.createObjectURL(
+                uploadedFile,
+              ),
+            )
+            .addClass("success");
+        }
+        filename =
+          $(this)[0].files[0].name;
+      }
+      $(this)
+        .siblings(".upload-name")
+        .val(filename);
+    }
+  });
+});
 
 function validateSignupForm() {
   const memberNick = $(
@@ -35,6 +88,19 @@ function validateSignupForm() {
   ) {
     alert(
       "Passwords differ. Please check your password.",
+    );
+    return false;
+  }
+
+  const memberImage = $(
+    ".member-image",
+  ).get(0).files[0]
+    ? $(".member-image").get(0).files[0]
+        .name
+    : null;
+  if (!memberImage) {
+    alert(
+      "Please insert restaurant image!",
     );
     return false;
   }
