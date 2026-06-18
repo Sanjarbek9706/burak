@@ -197,16 +197,35 @@ Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrg
 faqat toq sonlar nechtaligini return qilsin. MASALAN: sumOdds(9) return 4; sumOdds(11) return 5. 
 */
 
-function sumOdds(number: number): number {
-    let count: number = 0;
+// function sumOdds(number: number): number {
+//     let count: number = 0;
     
-    for (let i: number = 1; i < number; i++) {
-        if (i % 2 !== 0) {
-            count++;
-        }
+//     for (let i: number = 1; i < number; i++) {
+//         if (i % 2 !== 0) {
+//             count++;
+//         }
+//     }
+    
+//     return count;
+// }
+
+// console.log("shu raqamgacha bo'lgan toq sonlar: ", sumOdds(11), "number:", sumOdds(13)); 
+
+/* V-TASK
+
+Shunday function yozing, uni string parametri bolsin va stringdagi harf va 
+u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin. 
+MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}.
+*/
+
+function countChars(str: string): Record<string, number> {
+    const result: Record<string, number> = {};
+
+    for (const char of str) {
+        result[char] = (result[char] || 0) + 1;
     }
-    
-    return count;
+
+    return result;
 }
 
-console.log("shu raqamgacha bo'lgan toq sonlar: ", sumOdds(11), "number:", sumOdds(13)); 
+console.log(countChars("Sanjarbek"));
