@@ -18,13 +18,13 @@ $(function () {
       );
       const fileType =
         uploadedFile["type"];
-      const validImageTypes = [
+      const validImageType = [
         "image/jpeg",
         "image/jpg",
         "image/png",
       ];
       if (
-        !validImageTypes.includes(
+        !validImageType.includes(
           fileType,
         )
       ) {
