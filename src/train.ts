@@ -218,14 +218,54 @@ u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
 MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}.
 */
 
-function countChars(str: string): Record<string, number> {
-    const result: Record<string, number> = {};
+// function countChars(str: string): Record<string, number> {
+//     const result: Record<string, number> = {};
 
-    for (const char of str) {
-        result[char] = (result[char] || 0) + 1;
+//     for (const char of str) {
+//         result[char] = (result[char] || 0) + 1;
+//     }
+
+//     return result;
+// }
+
+// console.log(countChars("Sanjarbek"));
+
+/* W-TASK
+
+Shunday function yozing, uni array va number parametrlari bolsin.
+ Function arrayni numberda berilgan uzunlikda kesib bolaklarga
+  ajratilgan array holatida qaytarsin.
+   MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3)
+    return [[1,2,3], [4,5,6], [7,8,9], [10]]. */
+
+// function chunkArray(arr: any[], size: number): any[][] {
+//     const result: any[][] = [];
+
+//     for (let i: number = 0; i < arr.length; i += size) {
+//         const chunk: any[] = arr.slice(i, i + size);
+//         result.push(chunk);
+//     }
+
+//     return result;
+// }
+
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 7, 6, 8, 11], 4));
+
+
+function blaklargaBolish(arr: any[], size: number): any[][] {
+    const natija: any[][] = [];
+    let hozirgiBolak: any[] = []; 
+
+    for (let i: number = 0; i < arr.length; i++) {
+        hozirgiBolak.push(arr[i]);
+
+        if (hozirgiBolak.length === size || i === arr.length - 1) {
+            natija.push(hozirgiBolak); 
+            hozirgiBolak = []; 
+        }
     }
 
-    return result;
+    return natija;
 }
 
-console.log(countChars("Sanjarbek"));
+console.log(blaklargaBolish([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
