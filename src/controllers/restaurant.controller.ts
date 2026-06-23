@@ -104,6 +104,7 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
     try {
         console.log("getUsers")
         const result = await memberService.getUsers();
+        console.log("result:", result);
 
         res.render("users.ejs", { users: result });
     }  catch (err) {

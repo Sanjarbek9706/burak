@@ -40,7 +40,7 @@ const memberSchema = new Schema({
     memberDesc: {
         type: String,
     },
-    memberImege: {
+    memberImage: {
         type: String,
     },
 

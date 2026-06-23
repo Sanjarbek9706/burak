@@ -2,6 +2,7 @@
  import mongoose from 'mongoose';
  import app from "./app";
 
+ //TCP1
  mongoose
  .connect(process.env.MONGO_URL as string, {})
  .then((data) => {

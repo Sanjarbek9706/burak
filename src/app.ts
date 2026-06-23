@@ -9,6 +9,7 @@ import session from 'express-session';
 import ConnectMongoDB from 'connect-mongodb-session';
 import { T } from './libs/types/common';
 
+// TCP 2  bu sessionlar uchun hizmat qiladi, bu sessionlar MongoDB da saqlaydi!
 const MongoDBStore = ConnectMongoDB(session);
 const store  = new MongoDBStore({
     uri: String(process.env.MONGO_URL),
@@ -28,7 +29,7 @@ app.use(
     session({
         secret: String(process.env.SESSION_SECRET),
         cookie: {
-         maxAge: 1000 * 3600 * 6, // 6h
+         maxAge: 1000 * 3600 * 3, // 3h
   },
         store: store,
         resave: true,
