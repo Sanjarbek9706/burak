@@ -252,20 +252,61 @@ Shunday function yozing, uni array va number parametrlari bolsin.
 // console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 7, 6, 8, 11], 4));
 
 
-function blaklargaBolish(arr: any[], size: number): any[][] {
-    const natija: any[][] = [];
-    let hozirgiBolak: any[] = []; 
+// function blaklargaBolish(arr: any[], size: number): any[][] {
+//     const natija: any[][] = [];
+//     let hozirgiBolak: any[] = []; 
 
-    for (let i: number = 0; i < arr.length; i++) {
-        hozirgiBolak.push(arr[i]);
+//     for (let i: number = 0; i < arr.length; i++) {
+//         hozirgiBolak.push(arr[i]);
 
-        if (hozirgiBolak.length === size || i === arr.length - 1) {
-            natija.push(hozirgiBolak); 
-            hozirgiBolak = []; 
+//         if (hozirgiBolak.length === size || i === arr.length - 1) {
+//             natija.push(hozirgiBolak); 
+//             hozirgiBolak = []; 
+//         }
+//     }
+
+//     return natija;
+// }
+
+// console.log(blaklargaBolish([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+
+
+/* X-TASK
+
+Shunday function yozing, uni object va string parapetrlari bolsin.
+ Function string parametri object ichida necha marotaba takrorlanganligini 
+ qaytarsin (nested object bolsa ham sanasin). 
+ MASALAN: countOccurrences({model: 'Bugatti', 
+ steer: {model: 'HANKOOK', size: 30}}, 'model') return 2.  */
+
+ function countOccurrences(obj: Record<string, any>, targetStr: string): number {
+    let count = 0;
+
+    if (typeof obj !== 'object' || obj === null) {
+        return 0;
+    }
+
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            if (key === targetStr) {
+                count++;
+            }
+
+            if (typeof obj[key] === 'object' && obj[key] !== null) {
+                count += countOccurrences(obj[key], targetStr);
+            }
         }
     }
 
-    return natija;
+    return count;
 }
 
-console.log(blaklargaBolish([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+const car = {
+    model: 'Bugatti', 
+    steer: {
+        model: 'HANKOOK', 
+        size: 30
+    }
+};
+
+console.log(countOccurrences(car, 'model')); 
