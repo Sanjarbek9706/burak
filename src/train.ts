@@ -279,34 +279,63 @@ Shunday function yozing, uni object va string parapetrlari bolsin.
  MASALAN: countOccurrences({model: 'Bugatti', 
  steer: {model: 'HANKOOK', size: 30}}, 'model') return 2.  */
 
- function countOccurrences(obj: Record<string, any>, targetStr: string): number {
-    let count = 0;
+//  function countOccurrences(obj: Record<string, any>, targetStr: string): number {
+//     let count = 0;
 
-    if (typeof obj !== 'object' || obj === null) {
-        return 0;
-    }
+//     if (typeof obj !== 'object' || obj === null) {
+//         return 0;
+//     }
 
-    for (let key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            if (key === targetStr) {
-                count++;
-            }
+//     for (let key in obj) {
+//         if (obj.hasOwnProperty(key)) {
+//             if (key === targetStr) {
+//                 count++;
+//             }
 
-            if (typeof obj[key] === 'object' && obj[key] !== null) {
-                count += countOccurrences(obj[key], targetStr);
-            }
-        }
-    }
+//             if (typeof obj[key] === 'object' && obj[key] !== null) {
+//                 count += countOccurrences(obj[key], targetStr);
+//             }
+//         }
+//     }
 
-    return count;
+//     return count;
+// }
+
+// const car = {
+//     model: 'Bugatti', 
+//     steer: {
+//         model: 'HANKOOK', 
+//         size: 30
+//     }
+// };
+
+// console.log(countOccurrences(car, 'model')); 
+
+
+/*
+Y-TASK
+
+Shunday function yozing, uni 2 ta array parapetri bolsin.
+ Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin.
+  MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3].
+*/
+
+function findIntersection<T>(arr1: T[], arr2: T[]): T[] {
+    const set1 = new Set<T>(arr1);
+    const intersection = arr2.filter(element => set1.has(element));
+    
+    return Array.from(new Set<T>(intersection));
 }
 
-const car = {
-    model: 'Bugatti', 
-    steer: {
-        model: 'HANKOOK', 
-        size: 30
-    }
-};
 
-console.log(countOccurrences(car, 'model')); 
+//  Sonlar bilan (number[]):
+const numbers1 = [1, 2, 3];
+const numbers2 = [3, 2, 0];
+const result1 = findIntersection(numbers1, numbers2); 
+console.log(result1); 
+
+//  Matnlar bilan (string[]):
+const words1 = ["olma", "anor", "behi"];
+const words2 = ["behi", "bitta", "olma"];
+const result2 = findIntersection(words1, words2);
+console.log(result2); 

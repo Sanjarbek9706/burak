@@ -14,7 +14,7 @@ memberController.signup = async (req: Request, res: Response) => {
           result: Member = await memberService.signup(input);
           // TODO: TOKENS AUTHENTICATION
 
-        res.json({ membeer: result });
+        res.json({ member: result });
     }  catch (err) {
         console.log("Error signup:", err);
         if(err instanceof Errors) res.status(err.code).json(err);
@@ -30,7 +30,7 @@ memberController.login = async (req: Request, res: Response) => {
          // TODO: TOKENS AUTHENTICATION
         
 
-      res.json({ membeer: result });
+      res.json({ member: result });
     } catch (err) {
       console.log('Error, login:', err);
       if(err instanceof Errors) res.status(err.code).json(err);
