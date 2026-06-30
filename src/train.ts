@@ -320,22 +320,46 @@ Shunday function yozing, uni 2 ta array parapetri bolsin.
   MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3].
 */
 
-function findIntersection<T>(arr1: T[], arr2: T[]): T[] {
-    const set1 = new Set<T>(arr1);
-    const intersection = arr2.filter(element => set1.has(element));
+// function findIntersection<T>(arr1: T[], arr2: T[]): T[] {
+//     const set1 = new Set<T>(arr1);
+//     const intersection = arr2.filter(element => set1.has(element));
     
-    return Array.from(new Set<T>(intersection));
+//     return Array.from(new Set<T>(intersection));
+// }
+
+
+// //  Sonlar bilan (number[]):
+// const numbers1 = [1, 2, 3];
+// const numbers2 = [3, 2, 0];
+// const result1 = findIntersection(numbers1, numbers2); 
+// console.log(result1); 
+
+// //  Matnlar bilan (string[]):
+// const words1 = ["olma", "anor", "behi"];
+// const words2 = ["behi", "bitta", "olma"];
+// const result2 = findIntersection(words1, words2);
+// console.log(result2); 
+
+
+/*
+ Z-TASK
+
+Shunday function yozing, uni sonlardan tashkil topgan array qabul qilsin. 
+Function arraydagi juft sonlarni yigindisini qaytarsin. MASALAN: sumEvens([1,2,3]) return 2.
+ */
+
+ function sumEvens(numbers: number[]): number {
+    let totalSum: number = 0;
+    
+    for (let num of numbers) {
+        if (num % 2 === 0) {  //  if (num % 2 !== 0) {  // tok soni qaytaradi
+            totalSum += num;
+        }
+    }
+    
+    return totalSum;
 }
 
 
-//  Sonlar bilan (number[]):
-const numbers1 = [1, 2, 3];
-const numbers2 = [3, 2, 0];
-const result1 = findIntersection(numbers1, numbers2); 
-console.log(result1); 
-
-//  Matnlar bilan (string[]):
-const words1 = ["olma", "anor", "behi"];
-const words2 = ["behi", "bitta", "olma"];
-const result2 = findIntersection(words1, words2);
-console.log(result2); 
+console.log(sumEvens([1, 2, 3]));       
+console.log(sumEvens([4, 10, 5, 6]));   
