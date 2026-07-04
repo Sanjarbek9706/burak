@@ -43,7 +43,7 @@ class MemberService {
       throw new Errors(HttpCode.FORBIDDEN, Message.BLOCKED_USER);
     }
 
-    console.log("member:", member);
+    // console.log("member:", member);
 
 
     const isMatch = await bcrypt.compare(
