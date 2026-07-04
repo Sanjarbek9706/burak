@@ -19,7 +19,6 @@ const store  = new MongoDBStore({
 
 /* 1-ENTRANCE */
 const app = express();
-console.log("__dirname:", __dirname);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -40,7 +39,7 @@ app.use(
 app.use(function(req, res, next) {
     const sessionInstance = req.session as T;
     res.locals.member = sessionInstance.member;
-    next();    // /???????
+    next();    // tamxa hosil  qiladi, keyin esa keyingi middleware ga otadi
 });
 
 /* 3-VIEWS */
