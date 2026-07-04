@@ -13,7 +13,8 @@ class AuthService {
             jwt.sign(payload, process.env.SECRET_TOKEN as string, {
                  expiresIn: duration },
                   (err, token) => {
-                if (err) reject(new Errors(HttpCode.UNAUTHORIZED, Message.TOKEN_CREATION_FAILED));
+                if (err) reject(
+                    new Errors(HttpCode.UNAUTHORIZED, Message.TOKEN_CREATION_FAILED));
                 else resolve(token as string);
             });
         });
