@@ -1,4 +1,3 @@
-import { token } from "morgan";
 import { AUTH_TIMER } from "../libs/config";
 import Errors,{ HttpCode, Message } from "../libs/types/Errors";
 import { Member } from "../libs/types/member";
