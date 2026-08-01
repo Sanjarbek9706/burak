@@ -1,5 +1,6 @@
 import express from 'express';
 import path from "path";
+import cors from "cors";
 import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
@@ -19,6 +20,10 @@ const store  = new MongoDBStore({
 
 /* 1-ENTRANCE */
 const app = express();
+app.use(cors({
+        origin: "http://localhost:3000", // React ishlayotgan adres
+        credentials: true,                // Cookie va Session almashinuvi uchun
+    }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("./uploads"));
 app.use(express.urlencoded({extended: true}));

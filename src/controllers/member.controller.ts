@@ -98,7 +98,11 @@ memberController.login = async (req: Request, res: Response) => {
     try {
       console.log("updateMember");
       const input: MemberUpdateInput = req.body;
-      if(req.file) input.memberImage = req.file.path.replace(/\\/g, "/"); //windows userlar uchun, pathni to'g'ri formatlash
+      if(req.file) {
+      // req.file.path o'rniga req.file.filename ishlatamiz
+      input.memberImage = `uploads/members/${req.file.filename}`;
+    }
+     // input.memberImage = req.file.path.replace(/\\/g, "/"); //windows userlar uchun, pathni to'g'ri formatlash
       const result = await memberService.updateMember(req.member, input);
 
       res.status(HttpCode.OK).json(result);
